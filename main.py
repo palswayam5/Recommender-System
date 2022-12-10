@@ -9,7 +9,7 @@ class Learning_Curves():
         self.X = X
         self.y = y
         self.size_of_x = no_of_examples
-        self.test_set_size = 0.2
+        # self.test_set_size = 0.2
         self.train_set_size = [0.2, 0.3, 0.4, 0.5]
         self.Linear_regression_error = np.zeros(len(self.train_set_size))
         self.cross_validation_error = np.zeros(len(self.train_set_size))
@@ -20,7 +20,7 @@ class Learning_Curves():
     def define_train_cross_validation_sets(self):
         self.train_set_X = self.X[0:int(self.i*self.size_of_x)]
         self.train_set_y = self.y[0:int(self.i*self.size_of_x)].reshape(-1,1)
-        self.cross_validation_size = 0.8 - self.i
+        self.cross_validation_size = 1 - self.i
         self.cross_validation_set_X = self.X[int(self.i*self.size_of_x):int(
             self.i*self.size_of_x)+int(self.size_of_x*(self.cross_validation_size))]
         self.cross_validation_set_y = self.y[int(self.i*self.size_of_x):int(
